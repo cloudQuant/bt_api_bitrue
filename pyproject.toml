@@ -1,0 +1,14 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bt_api_bitrue"
+version = "0.1.0"
+description = "Bitrue exchange plugin for bt_api framework"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["bt_api_base"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bt_api_bitrue"]
