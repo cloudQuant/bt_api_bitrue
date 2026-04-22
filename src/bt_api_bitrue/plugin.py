@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from bt_api_base.plugins.protocol import PluginInfo
+
 from bt_api_bitrue.exchange_data import BitrueExchangeDataSpot
 from bt_api_bitrue.feeds.live_bitrue.spot import BitrueRequestDataSpot
 

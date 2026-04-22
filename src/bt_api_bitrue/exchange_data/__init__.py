@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from bt_api_base.containers.exchanges.exchange_data import ExchangeData
 
-
 _FALLBACK_REST_PATHS = {
     "ping": "GET /api/v1/ping",
     "get_server_time": "GET /api/v1/time",

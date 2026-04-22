@@ -37,9 +37,15 @@ class BitrueBalanceData(BalanceData):
 
         if isinstance(self.balance_data, dict):
             data = self.balance_data
-            self.currency = from_dict_get_string(data, "asset") or from_dict_get_string(data, "currency")
-            self.available = from_dict_get_float(data, "free", 0.0) or from_dict_get_float(data, "available", 0.0)
-            self.locked = from_dict_get_float(data, "locked", 0.0) or from_dict_get_float(data, "frozen", 0.0)
+            self.currency = from_dict_get_string(data, "asset") or from_dict_get_string(
+                data, "currency",
+            )
+            self.available = from_dict_get_float(data, "free", 0.0) or from_dict_get_float(
+                data, "available", 0.0,
+            )
+            self.locked = from_dict_get_float(data, "locked", 0.0) or from_dict_get_float(
+                data, "frozen", 0.0,
+            )
 
         self.has_been_init_data = True
         return self

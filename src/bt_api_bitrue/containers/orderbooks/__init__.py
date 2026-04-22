@@ -40,10 +40,14 @@ class BitrueOrderBookData(OrderBookData):
             data = self.orderbook_data
             bid_list = from_dict_get_list(data, "bids", [])
             ask_list = from_dict_get_list(data, "asks", [])
-            self.bids = [[from_dict_get_float(item, "0") or 0.0, from_dict_get_float(item, "1") or 0.0]
-                         for item in bid_list]
-            self.asks = [[from_dict_get_float(item, "0") or 0.0, from_dict_get_float(item, "1") or 0.0]
-                         for item in ask_list]
+            self.bids = [
+                [from_dict_get_float(item, "0") or 0.0, from_dict_get_float(item, "1") or 0.0]
+                for item in bid_list
+            ]
+            self.asks = [
+                [from_dict_get_float(item, "0") or 0.0, from_dict_get_float(item, "1") or 0.0]
+                for item in ask_list
+            ]
 
         self.has_been_init_data = True
         return self
