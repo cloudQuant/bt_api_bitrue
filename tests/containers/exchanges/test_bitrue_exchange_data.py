@@ -78,7 +78,7 @@ class TestBitrueExchangeDataSpot:
         """Test that unknown REST path raises ValueError."""
         exchange = BitrueExchangeDataSpot()
 
-        with pytest.raises(ValueError, match="Unknown rest path"):
+        with pytest.raises(ValueError, match="REST path not found"):
             exchange.get_rest_path("unknown_path")
 
     def test_get_wss_path(self):
