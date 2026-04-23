@@ -47,7 +47,8 @@ class BitrueOrderData(OrderData):
             self.order_type = from_dict_get_string(data, "type")
             self.price = from_dict_get_float(data, "price")
             self.amount = from_dict_get_float(data, "origQty") or from_dict_get_float(
-                data, "quantity",
+                data,
+                "quantity",
             )
             self.status = from_dict_get_string(data, "status")
 

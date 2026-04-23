@@ -49,13 +49,16 @@ class BitrueTickerData(TickerData):
             self.ticker_symbol_name = from_dict_get_string(data, "symbol")
             self.server_time = from_dict_get_float(data, "timestamp")
             self.last_price = from_dict_get_float(data, "lastPrice") or from_dict_get_float(
-                data, "price",
+                data,
+                "price",
             )
             self.bid_price = from_dict_get_float(data, "bidPrice") or from_dict_get_float(
-                data, "bid",
+                data,
+                "bid",
             )
             self.ask_price = from_dict_get_float(data, "askPrice") or from_dict_get_float(
-                data, "ask",
+                data,
+                "ask",
             )
             self.bid_volume = from_dict_get_float(data, "bidQty")
             self.ask_volume = from_dict_get_float(data, "askQty")

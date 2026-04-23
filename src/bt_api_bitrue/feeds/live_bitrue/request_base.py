@@ -91,7 +91,13 @@ class BitrueRequestData(Feed):
         return RequestData(res, extra_data)
 
     async def async_request(
-        self, path, params=None, body=None, extra_data=None, timeout=5, is_sign=False,
+        self,
+        path,
+        params=None,
+        body=None,
+        extra_data=None,
+        timeout=5,
+        is_sign=False,
     ):
         if params is None:
             params = {}
@@ -220,7 +226,13 @@ class BitrueRequestData(Feed):
         return path, params, extra_data
 
     def _make_order(
-        self, symbol, size, price=None, order_type="buy-limit", extra_data=None, **kwargs,
+        self,
+        symbol,
+        size,
+        price=None,
+        order_type="buy-limit",
+        extra_data=None,
+        **kwargs,
     ):
         path = self._params.get_rest_path("make_order")
         br_symbol = self._params.get_symbol(symbol)
