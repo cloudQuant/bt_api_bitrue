@@ -1,3 +1,4 @@
+"""Module documentation"""
 from __future__ import annotations
 
 import hashlib
@@ -13,6 +14,7 @@ from bt_api_bitrue.exchange_data import BitrueExchangeDataSpot
 
 
 class BitrueRequestData(Feed):
+    """Class BitrueRequestData"""
     @classmethod
     def _capabilities(cls) -> set[Capability]:
         return {
@@ -31,6 +33,7 @@ class BitrueRequestData(Feed):
         }
 
     def __init__(self, data_queue: Any = None, **kwargs: Any) -> None:
+        """__init__ method"""
         super().__init__(data_queue, **kwargs)
         self.data_queue = data_queue
         self._api_key = kwargs.get("public_key") or kwargs.get("api_key") or ""
@@ -43,10 +46,12 @@ class BitrueRequestData(Feed):
 
     @property
     def api_key(self):
+        """api_key method"""
         return self._api_key
 
     @property
     def api_secret(self):
+        """api_secret method"""
         return self._api_secret
 
     def _generate_signature(self, query_string):
@@ -59,10 +64,12 @@ class BitrueRequestData(Feed):
         ).hexdigest()
 
     def push_data_to_queue(self, data):
+        """push_data_to_queue method"""
         if self.data_queue is not None:
             self.data_queue.put(data)
 
     def request(self, path, params=None, body=None, extra_data=None, timeout=10, is_sign=False):
+        """request method"""
         if params is None:
             params = {}
         method, endpoint = path.split(" ", 1)
@@ -90,6 +97,7 @@ class BitrueRequestData(Feed):
         return RequestData(res, extra_data)
 
     async def async_request(self, path, params=None, body=None, extra_data=None, timeout=5, is_sign=False):
+        """async_request method"""
         if params is None:
             params = {}
         method, endpoint = path.split(" ", 1)
@@ -117,6 +125,7 @@ class BitrueRequestData(Feed):
         return RequestData(res, extra_data)
 
     def async_callback(self, request_data):
+        """async_callback method"""
         if request_data is not None:
             self.push_data_to_queue(request_data)
 

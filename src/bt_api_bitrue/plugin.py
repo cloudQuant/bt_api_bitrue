@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 from bt_api_base.plugins.protocol import PluginInfo
@@ -6,6 +7,7 @@ from bt_api_bitrue.feeds.live_bitrue.spot import BitrueRequestDataSpot
 
 
 def get_plugin_info() -> PluginInfo:
+    """get_plugin_info function"""
     return PluginInfo(
         name="bitrue",
         display_name="Bitrue",

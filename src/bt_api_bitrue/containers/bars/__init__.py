@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 import json
@@ -10,6 +11,7 @@ from bt_api_base.functions.utils import from_dict_get_float
 
 
 class BitrueBarData(BarData):
+    """Class BitrueBarData"""
     def __init__(
         self,
         bar_info: str | dict[str, Any],
@@ -17,6 +19,7 @@ class BitrueBarData(BarData):
         asset_type: str,
         has_been_json_encoded: bool = False,
     ) -> None:
+        """__init__ method"""
         super().__init__(bar_info, has_been_json_encoded)
         self.exchange_name = "BITRUE"
         self.local_update_time = time.time()
@@ -34,6 +37,7 @@ class BitrueBarData(BarData):
         self.has_been_init_data = False
 
     def init_data(self) -> Self:
+        """init_data method"""
         if not self.has_been_json_encoded:
             self.bar_data = json.loads(self.bar_info)
             self.has_been_json_encoded = True
@@ -62,42 +66,53 @@ class BitrueBarData(BarData):
         return self
 
     def get_exchange_name(self) -> str:
+        """get_exchange_name method"""
         return self.exchange_name
 
     def get_symbol_name(self) -> str:
+        """get_symbol_name method"""
         return self.symbol_name
 
     def get_asset_type(self) -> str:
+        """get_asset_type method"""
         return self.asset_type
 
     def get_open_time(self) -> int | None:
+        """get_open_time method"""
         self.init_data()
         return self.open_time
 
     def get_open_price(self) -> float | None:
+        """get_open_price method"""
         self.init_data()
         return self.open_price
 
     def get_high_price(self) -> float | None:
+        """get_high_price method"""
         self.init_data()
         return self.high_price
 
     def get_low_price(self) -> float | None:
+        """get_low_price method"""
         self.init_data()
         return self.low_price
 
     def get_close_price(self) -> float | None:
+        """get_close_price method"""
         self.init_data()
         return self.close_price
 
     def get_volume(self) -> float | None:
+        """get_volume method"""
         self.init_data()
         return self.volume
 
 
 class BitrueRequestBarData(BitrueBarData):
+    """Class BitrueRequestBarData"""
     pass
 
 
 class BitrueWssBarData(BitrueBarData):
+    """Class BitrueWssBarData"""
     pass

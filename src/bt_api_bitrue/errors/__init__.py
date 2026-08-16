@@ -1,11 +1,14 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 from bt_api_base.error import ErrorTranslator, UnifiedErrorCode
 
 
 class BitrueErrorTranslator(ErrorTranslator):
+    """Class BitrueErrorTranslator"""
     @classmethod
     def translate(cls, error_data: dict) -> UnifiedErrorCode:
+        """translate method"""
         code = error_data.get("code", error_data.get("errorCode"))
         msg = error_data.get("msg", error_data.get("message", error_data.get("error")))
         if code == -2015 or "auth" in str(msg).lower():

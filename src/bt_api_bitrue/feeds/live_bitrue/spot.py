@@ -1,35 +1,44 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 from bt_api_bitrue.feeds.live_bitrue.request_base import BitrueRequestData
 
 
 class BitrueRequestDataSpot(BitrueRequestData):
+    """Class BitrueRequestDataSpot"""
     def __init__(self, data_queue=None, **kwargs) -> None:
+        """__init__ method"""
         kwargs.setdefault("exchange_name", "BITRUE___SPOT")
         kwargs.setdefault("asset_type", "SPOT")
         super().__init__(data_queue, **kwargs)
 
     def get_server_time(self, extra_data=None, **kwargs):
+        """get_server_time method"""
         path, params, ed = self._get_server_time(extra_data, **kwargs)
         return self.request(path, params=params, extra_data=ed)
 
     async def async_get_server_time(self, extra_data=None, **kwargs):
+        """async_get_server_time method"""
         path, params, ed = self._get_server_time(extra_data, **kwargs)
         return await self.async_request(path, params=params, extra_data=ed)
 
     def get_exchange_info(self, extra_data=None, **kwargs):
+        """get_exchange_info method"""
         path, params, ed = self._get_exchange_info(extra_data, **kwargs)
         return self.request(path, params=params, extra_data=ed)
 
     async def async_get_exchange_info(self, extra_data=None, **kwargs):
+        """async_get_exchange_info method"""
         path, params, ed = self._get_exchange_info(extra_data, **kwargs)
         return await self.async_request(path, params=params, extra_data=ed)
 
     def get_tick(self, symbol, extra_data=None, **kwargs):
+        """get_tick method"""
         path, params, ed = self._get_tick(symbol, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=ed)
 
     async def async_get_tick(self, symbol, extra_data=None, **kwargs):
+        """async_get_tick method"""
         path, params, ed = self._get_tick(symbol, extra_data, **kwargs)
         return await self.async_request(path, params=params, extra_data=ed)
 
@@ -37,26 +46,32 @@ class BitrueRequestDataSpot(BitrueRequestData):
     async_get_ticker = async_get_tick
 
     def get_depth(self, symbol, count=100, extra_data=None, **kwargs):
+        """get_depth method"""
         path, params, ed = self._get_depth(symbol, count, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=ed)
 
     async def async_get_depth(self, symbol, count=100, extra_data=None, **kwargs):
+        """async_get_depth method"""
         path, params, ed = self._get_depth(symbol, count, extra_data, **kwargs)
         return await self.async_request(path, params=params, extra_data=ed)
 
     def get_kline(self, symbol, period="1h", count=100, extra_data=None, **kwargs):
+        """get_kline method"""
         path, params, ed = self._get_kline(symbol, period, count, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=ed)
 
     async def async_get_kline(self, symbol, period="1h", count=100, extra_data=None, **kwargs):
+        """async_get_kline method"""
         path, params, ed = self._get_kline(symbol, period, count, extra_data, **kwargs)
         return await self.async_request(path, params=params, extra_data=ed)
 
     def get_trade_history(self, symbol, count=50, extra_data=None, **kwargs):
+        """get_trade_history method"""
         path, params, ed = self._get_trade_history(symbol, count, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=ed)
 
     async def async_get_trade_history(self, symbol, count=50, extra_data=None, **kwargs):
+        """async_get_trade_history method"""
         path, params, ed = self._get_trade_history(symbol, count, extra_data, **kwargs)
         return await self.async_request(path, params=params, extra_data=ed)
 
@@ -64,57 +79,71 @@ class BitrueRequestDataSpot(BitrueRequestData):
     async_get_trades = async_get_trade_history
 
     def make_order(self, symbol, size, price=None, order_type="buy-limit", extra_data=None, **kwargs):
+        """make_order method"""
         path, params, ed = self._make_order(symbol, size, price, order_type, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=ed, is_sign=True)
 
     async def async_make_order(self, symbol, size, price=None, order_type="buy-limit", extra_data=None, **kwargs):
+        """async_make_order method"""
         path, params, ed = self._make_order(symbol, size, price, order_type, extra_data, **kwargs)
         return await self.async_request(path, params=params, extra_data=ed, is_sign=True)
 
     def cancel_order(self, symbol=None, order_id=None, extra_data=None, **kwargs):
+        """cancel_order method"""
         path, params, ed = self._cancel_order(symbol, order_id, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=ed, is_sign=True)
 
     async def async_cancel_order(self, symbol=None, order_id=None, extra_data=None, **kwargs):
+        """async_cancel_order method"""
         path, params, ed = self._cancel_order(symbol, order_id, extra_data, **kwargs)
         return await self.async_request(path, params=params, extra_data=ed, is_sign=True)
 
     def query_order(self, symbol=None, order_id=None, extra_data=None, **kwargs):
+        """query_order method"""
         path, params, ed = self._query_order(symbol, order_id, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=ed, is_sign=True)
 
     async def async_query_order(self, symbol=None, order_id=None, extra_data=None, **kwargs):
+        """async_query_order method"""
         path, params, ed = self._query_order(symbol, order_id, extra_data, **kwargs)
         return await self.async_request(path, params=params, extra_data=ed, is_sign=True)
 
     def get_open_orders(self, symbol=None, extra_data=None, **kwargs):
+        """get_open_orders method"""
         path, params, ed = self._get_open_orders(symbol, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=ed, is_sign=True)
 
     async def async_get_open_orders(self, symbol=None, extra_data=None, **kwargs):
+        """async_get_open_orders method"""
         path, params, ed = self._get_open_orders(symbol, extra_data, **kwargs)
         return await self.async_request(path, params=params, extra_data=ed, is_sign=True)
 
     def get_deals(self, symbol=None, extra_data=None, **kwargs):
+        """get_deals method"""
         path, params, ed = self._get_deals(symbol, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=ed, is_sign=True)
 
     async def async_get_deals(self, symbol=None, extra_data=None, **kwargs):
+        """async_get_deals method"""
         path, params, ed = self._get_deals(symbol, extra_data, **kwargs)
         return await self.async_request(path, params=params, extra_data=ed, is_sign=True)
 
     def get_account(self, extra_data=None, **kwargs):
+        """get_account method"""
         path, params, ed = self._get_account(extra_data, **kwargs)
         return self.request(path, params=params, extra_data=ed, is_sign=True)
 
     async def async_get_account(self, extra_data=None, **kwargs):
+        """async_get_account method"""
         path, params, ed = self._get_account(extra_data, **kwargs)
         return await self.async_request(path, params=params, extra_data=ed, is_sign=True)
 
     def get_balance(self, extra_data=None, **kwargs):
+        """get_balance method"""
         path, params, ed = self._get_balance(extra_data, **kwargs)
         return self.request(path, params=params, extra_data=ed, is_sign=True)
 
     async def async_get_balance(self, extra_data=None, **kwargs):
+        """async_get_balance method"""
         path, params, ed = self._get_balance(extra_data, **kwargs)
         return await self.async_request(path, params=params, extra_data=ed, is_sign=True)
