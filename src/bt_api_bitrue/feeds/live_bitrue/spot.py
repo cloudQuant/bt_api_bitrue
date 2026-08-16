@@ -1,4 +1,5 @@
 """Module-level docstring."""
+
 from __future__ import annotations
 
 from bt_api_bitrue.feeds.live_bitrue.request_base import BitrueRequestData
@@ -6,6 +7,7 @@ from bt_api_bitrue.feeds.live_bitrue.request_base import BitrueRequestData
 
 class BitrueRequestDataSpot(BitrueRequestData):
     """Class BitrueRequestDataSpot"""
+
     def __init__(self, data_queue=None, **kwargs) -> None:
         """__init__ method"""
         kwargs.setdefault("exchange_name", "BITRUE___SPOT")
@@ -78,12 +80,28 @@ class BitrueRequestDataSpot(BitrueRequestData):
     get_trades = get_trade_history
     async_get_trades = async_get_trade_history
 
-    def make_order(self, symbol, size, price=None, order_type="buy-limit", extra_data=None, **kwargs):
+    def make_order(
+        self,
+        symbol,
+        size,
+        price=None,
+        order_type="buy-limit",
+        extra_data=None,
+        **kwargs,
+    ):
         """make_order method"""
         path, params, ed = self._make_order(symbol, size, price, order_type, extra_data, **kwargs)
         return self.request(path, params=params, extra_data=ed, is_sign=True)
 
-    async def async_make_order(self, symbol, size, price=None, order_type="buy-limit", extra_data=None, **kwargs):
+    async def async_make_order(
+        self,
+        symbol,
+        size,
+        price=None,
+        order_type="buy-limit",
+        extra_data=None,
+        **kwargs,
+    ):
         """async_make_order method"""
         path, params, ed = self._make_order(symbol, size, price, order_type, extra_data, **kwargs)
         return await self.async_request(path, params=params, extra_data=ed, is_sign=True)

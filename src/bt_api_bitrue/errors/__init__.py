@@ -1,4 +1,5 @@
 """Module-level docstring."""
+
 from __future__ import annotations
 
 from bt_api_base.error import ErrorTranslator, UnifiedErrorCode
@@ -6,6 +7,7 @@ from bt_api_base.error import ErrorTranslator, UnifiedErrorCode
 
 class BitrueErrorTranslator(ErrorTranslator):
     """Class BitrueErrorTranslator"""
+
     @classmethod
     def translate(cls, error_data: dict) -> UnifiedErrorCode:
         """translate method"""

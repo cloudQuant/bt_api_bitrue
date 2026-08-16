@@ -1,4 +1,5 @@
 """Module-level docstring."""
+
 from __future__ import annotations
 
 import json
@@ -12,6 +13,7 @@ from bt_api_base.functions.utils import from_dict_get_float
 
 class BitrueBarData(BarData):
     """Class BitrueBarData"""
+
     def __init__(
         self,
         bar_info: str | dict[str, Any],
@@ -110,9 +112,7 @@ class BitrueBarData(BarData):
 
 class BitrueRequestBarData(BitrueBarData):
     """Class BitrueRequestBarData"""
-    pass
 
 
 class BitrueWssBarData(BitrueBarData):
     """Class BitrueWssBarData"""
-    pass

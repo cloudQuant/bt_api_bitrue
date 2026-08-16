@@ -1,8 +1,8 @@
 """Module-level docstring."""
+
 from __future__ import annotations
 
 from bt_api_base.containers.exchanges.exchange_data import ExchangeData
-
 
 _FALLBACK_REST_PATHS = {
     "ping": "GET /api/v1/ping",
@@ -26,6 +26,7 @@ _FALLBACK_REST_PATHS = {
 
 class BitrueExchangeData(ExchangeData):
     """Class BitrueExchangeData"""
+
     def __init__(self) -> None:
         """__init__ method"""
         super().__init__()
@@ -72,6 +73,7 @@ class BitrueExchangeData(ExchangeData):
 
 class BitrueExchangeDataSpot(BitrueExchangeData):
     """Class BitrueExchangeDataSpot"""
+
     def __init__(self) -> None:
         """__init__ method"""
         super().__init__()

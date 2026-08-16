@@ -1,4 +1,5 @@
 """Module-level docstring."""
+
 from __future__ import annotations
 
 import json
@@ -12,6 +13,7 @@ from bt_api_base.functions.utils import from_dict_get_float, from_dict_get_strin
 
 class BitrueBalanceData(BalanceData):
     """Class BitrueBalanceData"""
+
     def __init__(
         self,
         balance_info: Any,
@@ -41,9 +43,20 @@ class BitrueBalanceData(BalanceData):
 
         if isinstance(self.balance_data, dict):
             data = self.balance_data
-            self.currency = from_dict_get_string(data, "asset") or from_dict_get_string(data, "currency")
-            self.available = from_dict_get_float(data, "free", 0.0) or from_dict_get_float(data, "available", 0.0)
-            self.locked = from_dict_get_float(data, "locked", 0.0) or from_dict_get_float(data, "frozen", 0.0)
+            self.currency = from_dict_get_string(data, "asset") or from_dict_get_string(
+                data,
+                "currency",
+            )
+            self.available = from_dict_get_float(data, "free", 0.0) or from_dict_get_float(
+                data,
+                "available",
+                0.0,
+            )
+            self.locked = from_dict_get_float(data, "locked", 0.0) or from_dict_get_float(
+                data,
+                "frozen",
+                0.0,
+            )
 
         self.has_been_init_data = True
         return self
@@ -105,9 +118,7 @@ class BitrueBalanceData(BalanceData):
 
 class BitrueRequestBalanceData(BitrueBalanceData):
     """Class BitrueRequestBalanceData"""
-    pass
 
 
 class BitrueWssBalanceData(BitrueBalanceData):
     """Class BitrueWssBalanceData"""
-    pass

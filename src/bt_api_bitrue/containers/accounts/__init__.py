@@ -1,4 +1,5 @@
 """Module-level docstring."""
+
 from __future__ import annotations
 
 import json
@@ -12,6 +13,7 @@ from bt_api_base.functions.utils import from_dict_get_list
 
 class BitrueAccountData(AccountData):
     """Class BitrueAccountData"""
+
     def __init__(
         self,
         account_info: str | dict[str, Any],
@@ -86,9 +88,7 @@ class BitrueAccountData(AccountData):
 
 class BitrueRequestAccountData(BitrueAccountData):
     """Class BitrueRequestAccountData"""
-    pass
 
 
 class BitrueWssAccountData(BitrueAccountData):
     """Class BitrueWssAccountData"""
-    pass

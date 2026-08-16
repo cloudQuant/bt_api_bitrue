@@ -1,4 +1,5 @@
 """Module-level docstring."""
+
 from __future__ import annotations
 
 import json
@@ -12,6 +13,7 @@ from bt_api_base.functions.utils import from_dict_get_float, from_dict_get_strin
 
 class BitrueTickerData(TickerData):
     """Class BitrueTickerData"""
+
     def __init__(
         self,
         ticker_info: str | dict[str, Any],
@@ -52,9 +54,18 @@ class BitrueTickerData(TickerData):
         if isinstance(data, dict):
             self.ticker_symbol_name = from_dict_get_string(data, "symbol")
             self.server_time = from_dict_get_float(data, "timestamp")
-            self.last_price = from_dict_get_float(data, "lastPrice") or from_dict_get_float(data, "price")
-            self.bid_price = from_dict_get_float(data, "bidPrice") or from_dict_get_float(data, "bid")
-            self.ask_price = from_dict_get_float(data, "askPrice") or from_dict_get_float(data, "ask")
+            self.last_price = from_dict_get_float(data, "lastPrice") or from_dict_get_float(
+                data,
+                "price",
+            )
+            self.bid_price = from_dict_get_float(data, "bidPrice") or from_dict_get_float(
+                data,
+                "bid",
+            )
+            self.ask_price = from_dict_get_float(data, "askPrice") or from_dict_get_float(
+                data,
+                "ask",
+            )
             self.bid_volume = from_dict_get_float(data, "bidQty")
             self.ask_volume = from_dict_get_float(data, "askQty")
             self.volume = from_dict_get_float(data, "volume")
@@ -146,9 +157,7 @@ class BitrueTickerData(TickerData):
 
 class BitrueRequestTickerData(BitrueTickerData):
     """Class BitrueRequestTickerData"""
-    pass
 
 
 class BitrueWssTickerData(BitrueTickerData):
     """Class BitrueWssTickerData"""
-    pass

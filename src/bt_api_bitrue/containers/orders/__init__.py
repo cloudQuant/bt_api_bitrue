@@ -1,4 +1,5 @@
 """Module-level docstring."""
+
 from __future__ import annotations
 
 import json
@@ -12,6 +13,7 @@ from bt_api_base.functions.utils import from_dict_get_float, from_dict_get_strin
 
 class BitrueOrderData(OrderData):
     """Class BitrueOrderData"""
+
     def __init__(
         self,
         order_info: str | dict[str, Any],
@@ -50,7 +52,10 @@ class BitrueOrderData(OrderData):
             self.side = from_dict_get_string(data, "side")
             self.order_type = from_dict_get_string(data, "type")
             self.price = from_dict_get_float(data, "price")
-            self.amount = from_dict_get_float(data, "origQty") or from_dict_get_float(data, "quantity")
+            self.amount = from_dict_get_float(data, "origQty") or from_dict_get_float(
+                data,
+                "quantity",
+            )
             self.status = from_dict_get_string(data, "status")
 
         self.has_been_init_data = True
@@ -95,9 +100,7 @@ class BitrueOrderData(OrderData):
 
 class BitrueRequestOrderData(BitrueOrderData):
     """Class BitrueRequestOrderData"""
-    pass
 
 
 class BitrueWssOrderData(BitrueOrderData):
     """Class BitrueWssOrderData"""
-    pass
