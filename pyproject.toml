@@ -65,3 +65,6 @@ markers = [
     "integration: Integration tests (may require external services)",
 ]
 
+
+[project.entry-points."bt_api.plugins"]
+bitrue = "bt_api_bitrue.plugin:register_plugin"
